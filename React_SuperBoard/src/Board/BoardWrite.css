@@ -1,0 +1,84 @@
+.write-container {
+    width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+header {
+    background-color: #faf9ee;
+    color: #8d5604;
+    padding: 40px 20px;
+    text-align: center;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.form-container {
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"], textarea {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #8d560454;
+    border-radius: 5px;
+}
+
+select, option {
+    padding: 3px;
+    box-sizing: border-box;
+    border: 1px solid #8d560454;
+    border-radius: 5px;
+  }
+
+  .tiptap .is-editor-empty::before {
+    content: attr(data-placeholder);
+    color: #999;
+    position: absolute;
+    pointer-events: none;
+    height: 0;
+    font-style: italic;
+    margin-left: 5px;
+  }
+
+.is-placeholder {
+    color: #ccc;
+    font-style: italic;
+}
+
+.buttons {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.buttons button, .buttons a {
+    background-color: #faf9ee;
+    border: 1px solid #8d560454;
+    color: #8d5604;
+    padding: 10px 15px;
+    border-radius: 3px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    margin: 0 5px;
+    font-size: 1em;
+}
+
+.buttons button:hover, .buttons a:hover {
+    background-color: #f7f4d4;
+}

@@ -1,0 +1,196 @@
+/* styles/Modal.css */
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* 어두운 배경 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+  }
+  
+  .modal-box {
+    background-color: white;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    width: 24rem; /* 96px * 4 = 384px */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+  
+  .modal-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+  }
+  
+  .modal-cancel-btn {
+    margin-top: 1%;
+    background: #f7f1e5;
+    color: #e0c48b;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.375rem;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .modal-delete-btn {
+    margin-top: 1%;
+    background: #f7f1e5;
+    color: #e0c48b;
+    padding: 0.5rem 1.0rem;
+    border-radius: 0.375rem;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .modal-cancel-btn:hover,
+  .modal-delete-btn:hover {
+    background-color: #e0c48b; /* Hover 시 색상 변경 (부드러운 베이지) */
+    color: white;   
+  }
+
+  /* 이 위에는 건들지 마시오 */
+
+  input[type="password"] {
+    width: 99%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #8d560454;
+    border-radius: 5px;
+  }
+
+  .ModifyUserUIEntireDiv {
+    margin-left: 30%;
+    margin-right: 30%;
+    text-align: center;
+  }
+
+  .ModifyUserUIHeader {
+    margin-top: 100px;
+    font-size: 36px;
+    font-weight: bold;
+    color: #8d5604;
+  }
+
+  .ModifyUserUIHeader:hover {
+    cursor: pointer;
+    color: #d4a850;
+  }
+
+  .ModifyUserUIDivHeader {
+    font-size: 28px;
+    font-weight: bold;
+    color: #8d5604;
+  }
+  
+  .ModifyUserUIDivHeaderSub{
+    font-size: 20px;
+    font-weight: bold;
+    color: #8d5604;
+  }
+
+  .ModifyUserUITalbeBtn{
+    width: 55%;
+    padding: 5px;
+    /* margin-top: 10px; */
+    background: #f7f1e5;
+    color: #e0c48b;
+    /* border: 1px solid #d4a850; */
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .ModifyUserUITalbeBtn:hover{
+    background-color: #e0c48b; /* Hover 시 색상 변경 (부드러운 베이지) */
+    color: white;   
+  }
+
+  .ShowNewPasswordBtn {
+    width: 30%;
+    padding: 5px;
+    /* margin-top: 10px; */
+    background: #f7f1e5;
+    color: #e0c48b;
+    /* border: 1px solid #d4a850; */
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-left: 15%;
+  }
+
+  .ShowNewPasswordBtn:hover{
+    background-color: #e0c48b; /* Hover 시 색상 변경 (부드러운 베이지) */
+    color: white;
+  }
+
+  .ShowNewPasswordBtn2 {
+    width: 50%;
+    padding: 5px;
+    /* margin-top: 10px; */
+    background: #f7f1e5;
+    color: #e0c48b;
+    /* border: 1px solid #d4a850; */
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    /* margin-left: 13%; */
+  }
+
+  .ShowNewPasswordBtn2:hover{
+    background-color: #e0c48b; /* Hover 시 색상 변경 (부드러운 베이지) */
+    color: white;
+  }
+
+  .modifyTimerdiv{
+    margin-left: 65%;
+    width: 40%;
+  }
+
+  .ModifyUserUITableRowBtn{
+    width: 80%;
+    padding: 5px;
+    /* margin-top: 10px; */
+    background: #f7f1e5;
+    color: #e0c48b;
+    /* border: 1px solid #d4a850; */
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    /* margin-left: 13%; */
+  }
+
+  .ModifyUserUITableRowBtn:hover{
+    background-color: #e0c48b; /* Hover 시 색상 변경 (부드러운 베이지) */
+    color: white;
+  }
+  
+  .ModifyUserUIFooterBtn{
+    width: 20%;
+    padding: 5px;
+    /* margin-top: 10px; */
+    background: #f7f1e5;
+    color: #e0c48b;
+    /* border: 1px solid #d4a850; */
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    /* margin-left: 13%; */
+    margin-left: 5%;
+  }
+
+  .ModifyUserUIFooterBtn:hover{
+    background-color: #e0c48b; /* Hover 시 색상 변경 (부드러운 베이지) */
+    color: white;
+  }

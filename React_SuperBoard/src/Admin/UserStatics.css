@@ -1,0 +1,97 @@
+/* 전체적인 배경과 텍스트 색상을 설정 */
+.UserStaticsEntireDiv {
+    background-color: #fff; /* 배경을 흰색으로 */
+    font-family: Arial, sans-serif; /* 기본 폰트 설정 */
+    color: #333; /* 텍스트 색상은 어두운 회색 */
+    padding: 20px;
+}
+
+/* 상단 헤더 스타일 */
+.UserStaticsHeaderP {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #8d5604; /* 검정색 텍스트 */
+    cursor: pointer;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.UserStaticsHeaderP:hover{
+    color:#d4a850;
+}
+
+/* 통계 테이블 스타일 */
+.UserStaticsPrintTableDiv {
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.UserStaticsSelectValue{
+    margin-left: 3%;
+}
+
+.UserStaticsPrintTable {
+    width: 80%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.UserStaticsPrintTable th, .UserStaticsPrintTable td {
+    padding: 12px 15px;
+    text-align: center;
+    border: 1px solid #ddd;
+    color: #8d5604;
+}
+
+.UserStaticsPrintTable th {
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #faf9ee;
+    color: #8d5604;
+}
+
+.UserStaticsPrintTable td {
+    font-size: 14px;
+}
+
+/* 로그 출력 섹션 */
+.UserStaticsLogPrintDiv {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.UserStataicsPrintLogsHeader {
+    font-size: 20px;
+    font-weight: bold;
+    color: #000; /* 검정색 */
+    margin-bottom: 20px;
+}
+
+.UserStaticsLogsTable {
+    width: 80%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    background-color: #fafafa; /* 테이블 배경은 연한 회색 */
+}
+
+.UserStaticsLogsTable td {
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    word-wrap: break-word; /* 긴 텍스트가 있을 때 줄바꿈 */
+}
+
+/* pre 태그를 스타일링하여 줄바꿈을 처리 */
+pre {
+    white-space: pre-wrap; /* 줄바꿈을 반영 */
+    word-wrap: break-word; /* 긴 단어가 있을 경우 줄바꿈 */
+    margin: 0;
+    font-size: 14px;
+    color: #333; /* 로그 텍스트 색상 */
+    background-color: #f5f5f5; /* 로그 배경 색상 */
+    padding: 10px;
+    border-radius: 5px;
+}

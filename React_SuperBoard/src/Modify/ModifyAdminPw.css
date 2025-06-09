@@ -1,0 +1,93 @@
+/* 전체 페이지 배경 및 정렬 */
+.ModifyAdminPwEntireDiv {
+    background-color: white;
+    min-height: 100vh;
+    padding: 0 40px; /* 위쪽 마진 제거 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* 상단 헤더 */
+  .ModifyAdminPwHeaerMain {
+    font-size: 36px;
+    font-weight: 800;
+    color: #000;
+    cursor: pointer;
+    margin-bottom: 30px; /* 간격도 조금 줄임 */
+  }
+  
+  /* 메인 영역 박스 */
+  .ModifyAdminPwPrintDiv {
+    width: 100%;
+    max-width: 560px; /* 조금 더 좁게 */
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  }
+  
+  /* 제목 문구 */
+  .ModifyAdmiPwPrintHeaderSentence {
+    font-size: 28px;
+    font-weight: 800;
+    color: #222;
+    margin-bottom: 25px;
+    text-align: center;
+  }
+  
+  /* 안내 문구 */
+  .ModifyAdminPwMainSentence,
+  .ModifyAdminPwSubSentence {
+    font-size: 15px;
+    font-weight: 600;
+    color: #333;
+    line-height: 1.8;
+    margin-bottom: 25px;
+    text-align: left;
+  }
+  
+  /* 테이블 스타일 */
+  .ModifyAdminPwMainTable {
+    width: 100%;
+    margin-bottom: 25px;
+  }
+  
+  .ModifyAdminPwMainTableLabel {
+    font-weight: 700;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .ModifyAdminPwMainTableInputText {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    outline: none;
+    box-sizing: border-box;
+  }
+  
+  /* 버튼 스타일 */
+  .ModifyAdminPwBtn {
+    width: 100%;
+    max-width: 420px; /* 버튼 길이 늘림 */
+    padding: 18px 26px; /* 버튼 높이 키움 */
+    font-size: 22px; /* 글씨 크기 키움 */
+    font-weight: 700;
+    background-color: #000;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    margin: 14px auto;
+    display: block;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .ModifyAdminPwBtn:hover {
+    background-color: #333;
+  }

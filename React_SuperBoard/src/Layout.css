@@ -1,0 +1,70 @@
+/* 상단 네비게이션 바 */
+.NavigateDIV {
+    width: 100%;
+    padding: 1rem 0;
+    background-color: #faf9ef;
+    border-bottom: 1px solid #ddd;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+/* 메뉴 리스트 (ul) */
+.uldiv {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    gap: 2rem;
+}
+
+/* 공통 링크 스타일 */
+.uldiv li a {
+    text-decoration: none;
+    font-size: 1rem;
+    color: #8d5604;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+/* 링크 hover 효과 */
+.uldiv li a:hover {
+    background-color: #e0e0e0;
+    color: black;
+}
+
+/* 홈 아이콘 */
+#HomeImg a {
+    font-size: 1.5rem;
+}
+
+/* 로그인 / 로그아웃 버튼 */
+#LoginDiv .log {
+    font-weight: 500;
+}
+
+/* 게시판가기 버튼 */
+#SignupDiv .log {
+    font-weight: 500;
+}
+
+/* 회원가입, 회원정보수정, 관리자기능 버튼 */
+#ETCDiv .modify, #ETCDiv a {
+    font-weight: 500;
+}
+
+/* 반응형 - 모바일 대응 */
+@media (max-width: 768px) {
+    .uldiv {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .uldiv li a {
+        width: 100%;
+        text-align: center;
+    }
+}

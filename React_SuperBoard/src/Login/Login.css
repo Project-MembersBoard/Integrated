@@ -1,0 +1,103 @@
+/* .LPDiv 스타일 */
+.LPDiv {
+    margin: auto;
+    margin-top: 20vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white; /* 배경을 흰색으로 설정 */
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* 부드러운 그림자 추가 */
+    width: 100%;
+    max-width: 400px; /* 최대 너비 제한 */
+}
+
+/* .LPHeaderH1 스타일 */
+.LPHeaderH1 {
+    color: #8d5604; /* 짙은 회색 */
+    margin-bottom: 30px;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+/* .LPLDiv 스타일 */
+.LPLDiv {
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+/* .LPLInputDiv 스타일 */
+.LPLInputDiv {
+    width: 100%;
+}
+
+/* .LPLSetInput 스타일 */
+input.LPLSetInput[type="password"],
+input.LPLSetInput[type="text"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #d4a850;
+    background-color: #f7f1e5;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border 0.3s ease;
+    box-sizing: border-box;
+}
+
+.LPLSetInput:focus {
+    border-color: #333; /* 입력창 포커스 시, 진한 회색 */
+    outline: none;
+}
+
+/* .LPLBtn 스타일 */
+.LPLBtn {
+    width: 45%;
+    padding: 12px;
+    margin-top: 10px;
+    background: #f7f1e5;
+    color: #e0c48b;
+    /* border: 1px solid #d4a850; */
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-left: 3%;
+}
+
+.LPLBtn:hover {
+    background-color: #e0c48b; /* Hover 시 색상 변경 (부드러운 베이지) */
+    color: white;   
+}
+
+/* .LPGap 스타일 */
+.LPGap {
+    margin-bottom: 20px;
+}
+
+/* 버튼 간격 설정 */
+.LPLDiv input[type="button"] {
+    margin-bottom: 10px;
+}
+
+.FooterSpan{
+    color:#8d5604;
+}
+
+.FooterSpan:hover{
+    cursor: pointer;
+    color:#d4a850;
+}   
+
+.LPHeaderH1:hover {
+    cursor: pointer;
+    color: #d4a850;
+}
+
+.FooterWall {
+    margin-left: 20px;
+    margin-right: 20px;
+    color: #ccc;
+}

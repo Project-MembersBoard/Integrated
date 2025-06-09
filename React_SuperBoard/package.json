@@ -1,0 +1,61 @@
+{
+  "name": "teampj",
+  "version": "0.1.0",
+  "private": true,
+  "proxy": "http://localhost:8700",
+  "dependencies": {
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@tiptap/extension-bold": "^2.11.9",
+    "@tiptap/extension-bubble-menu": "^2.11.9",
+    "@tiptap/extension-bullet-list": "^2.11.9",
+    "@tiptap/extension-code-block": "^2.11.9",
+    "@tiptap/extension-color": "^2.11.9",
+    "@tiptap/extension-floating-menu": "^2.11.9",
+    "@tiptap/extension-font-family": "^2.11.9",
+    "@tiptap/extension-heading": "^2.11.9",
+    "@tiptap/extension-image": "^2.11.9",
+    "@tiptap/extension-italic": "^2.11.9",
+    "@tiptap/extension-link": "^2.11.9",
+    "@tiptap/extension-ordered-list": "^2.11.9",
+    "@tiptap/extension-placeholder": "^2.11.9",
+    "@tiptap/extension-text-align": "^2.11.9",
+    "@tiptap/extension-text-style": "^2.11.9",
+    "@tiptap/extension-underline": "^2.11.9",
+    "@tiptap/react": "^2.11.9",
+    "@tiptap/starter-kit": "^2.11.9",
+    "axios": "^1.8.4",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-router-dom": "^7.5.1",
+    "react-scripts": "5.0.1",
+    "recharts": "^2.15.3",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

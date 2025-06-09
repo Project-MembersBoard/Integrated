@@ -1,0 +1,135 @@
+.view-container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+header {
+    background-color: #faf9ee;
+    color: #8d5604;
+    padding: 40px 20px;
+    text-align: center;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.board-content-container {
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+}
+
+.board-header {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.board-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.board-info {
+    display: flex;
+    flex-wrap: wrap;
+    color: #8d5604;
+    font-size: 0.9rem;
+}
+
+.board-info span {
+    margin-right: 15px;
+}
+
+.board-content {
+    min-height: 300px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    white-space: pre-line;
+}
+
+.board-tags {
+    margin: 20px 0;
+}
+
+.tag {
+    display: inline-block;
+    background-color: #f0f0f0;
+    padding: 5px 10px;
+    border-radius: 15px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.like-container {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.like-button {
+    background-color: white;
+    border: 2px solid #ddd;
+    border-radius: 30px;
+    padding: 10px 25px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.like-button:hover {
+    background-color: #f9f9f9;
+}
+
+.like-button.liked {
+    border-color: #ff6b6b;
+    color: #ff6b6b;
+}
+
+.buttons {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.buttons a, .buttons button {
+    display: inline-block;
+    padding: 8px 20px;
+    margin: 0 5px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.btn-list {
+    background-color: #faf9ee;
+    color: white;
+}
+
+.btn-edit {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.btn-delete {
+    background-color: #f44336;
+    color: white;
+    border: none;
+}
+
+.btn-list:hover {
+    background-color: #f7f4d4;
+}
+
+.btn-edit:hover {
+    background-color: #3e8e41;
+}
+
+.btn-delete:hover {
+    background-color: #d32f2f;
+}

@@ -1,0 +1,228 @@
+.UserInfoPrintEntireDiv{
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+.UserInfoPrintPrintDiv {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.UserInfoPrintHeaderDiv {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.UserInfoPrintHeaderDiv p {
+  font-size: 1.5rem;
+  color: #e0c48b;
+  font-weight: bold;
+  margin: 0;
+}
+
+.UserInfoPrintHeaderP {
+  color: #8d5604;
+}
+
+.UserInfoPrintHeaderP:hover{
+  color:#d4a850;
+}
+
+.UserInfoPrintInputText input {
+  padding: 12px;
+  border: 1px solid #e0c48b;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: #f7f1e5;
+  outline: none;
+  width: 300px;
+  margin-right: 20px;
+}
+
+.UserInfoPrintCheckBoxDiv {
+  width: 100%;
+  display: flex;
+  margin-bottom: 20px;
+  
+}
+
+.UserInfoPrintCheckbox{
+  margin-right: 1%;
+}
+
+.UserInfoPrintCheckbox input {
+  color: #e0c48b;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: #f7f1e5;
+  outline: none;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.UserInfoPrintCheckbox input:hover {
+  background-color: #e0c48b;
+  color: white;
+}
+
+.UserInfoFilterSelect select {
+  padding: 12px;
+  border: 1px solid #e0c48b;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: #f7f1e5;
+  outline: none;
+  width: 200px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.UserInfoPrintTable {
+  width: 100%;
+  margin-bottom: 20px;
+  border-collapse: collapse;
+}
+
+.UserInfoPrintTable td {
+  padding: 12px;
+  text-align: left;
+  font-size: 1rem;
+  color: #333;
+  background-color: transparent;
+}
+
+.UserInfoPrintTable th {
+  padding: 12px;
+  text-align: left;
+  font-size: 1rem;
+  color: #333;
+  background-color: transparent;
+  border-bottom: 1px solid #e0c48b;
+}
+
+.UserInfoPrintTableBtn {
+  padding: 10px;
+  background-color: #f7f1e5;
+  color: #e0c48b;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.UserInfoPrintTableBtn:hover {
+  background-color: #e0c48b;
+  color: white;
+}
+
+.UserInfoPrintTableBtn:active {
+  background-color: #d4a850;
+  color: white;
+}
+
+.UserInfoPrintPagination {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  /* margin-bottom: 10px; */
+}
+
+.UserInfoPrintBtnLeft, .UserInfoPrintBtnRight {
+  padding: 12px;
+  background-color: #f7f1e5;
+  color: #e0c48b;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  margin: 0 10px;
+}
+
+.UserInfoPrintBtnLeft:hover, .UserInfoPrintBtnRight:hover {
+  background-color: #e0c48b;
+  color: white;
+}
+
+.UserInfoPrintBtnLeft:active, .UserInfoPrintBtnRight:active {
+  background-color: #d4a850;
+  color: white;
+}
+
+.UserInfoFooterBtn1,
+.UserInfoFooterBtn2,
+.UserInfoFooterBtn3 {
+  padding: 12px;
+  background-color: #f7f1e5;
+  color: #e0c48b;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 10%;
+  transition: background-color 0.3s, color 0.3s;
+  margin: 10px;
+  margin-left: 0;
+}
+
+.UserInfoFooterBtn1 {
+  margin-left: 33.5%;
+}
+
+.UserInfoFooterBtn1:hover,
+.UserInfoFooterBtn2:hover,
+.UserInfoFooterBtn3:hover {
+  background-color: #e0c48b;
+  color: white;
+}
+
+.UserInfoFooterBtn1:active,
+.UserInfoFooterBtn2:active,
+.UserInfoFooterBtn3:active {
+  background-color: #d4a850;
+  color: white;
+}
+
+.UserInfoFooterBtns {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.UserInfoFooterBtns input {
+  margin: 0 10px;
+}
+
+.UserInfoPrintHeaderP {
+  margin-top: 50px;
+  font-size: 3rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.UserInfoPrintHeaderP:hover {
+  cursor: pointer;
+}
+
+.UserInfoSelectClassname {
+  text-align: center;
+  color: #e0c48b;
+}
+
+.UserInfoFilterSelect {
+  margin-left: 62%;
+}
+
+.UserInfoPrintInputText {
+  margin-left: 22%;
+}

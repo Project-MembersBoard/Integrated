@@ -1,0 +1,118 @@
+.board-management-container {
+  width: 80%; /* 기존보다 줄임 */
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px 20px;
+  text-align: center; /* 전체 중앙 정렬 */
+}
+
+header {
+  background-color: #333;
+  color: white;
+  padding: 1.2rem;
+  margin-bottom: 30px;
+  border-radius: 8px;
+}
+
+.management-content {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+}
+
+.create-category, .category-list {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(255, 66, 66, 0.1);
+  padding: 25px;
+  width: 100%;
+  max-width: 700px;
+}
+
+.category-form {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  margin-top: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.category-form input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  flex: 1;
+  min-width: 200px;
+}
+
+.category-form button, .delete-btn {
+  padding: 10px 20px;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.category-form button:hover {
+  background-color: #555;
+}
+
+.delete-btn {
+  background-color: #d9534f;
+}
+
+.delete-btn:hover {
+  background-color: #c9302c;
+}
+
+.categories-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.categories-table th, .categories-table td {
+  padding: 14px;
+  border-bottom: 1px solid #ddd;
+}
+
+.categories-table th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+
+.categories-table tr:hover {
+  background-color: #fafafa;
+}
+
+h2 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .board-management-container {
+    width: 95%;
+    padding: 20px 10px;
+  }
+
+  .category-form {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .category-form input {
+    width: 100%;
+  }
+
+  .category-form button {
+    width: 100%;
+  }
+}
