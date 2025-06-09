@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"file:///C:/Users/805-10/eclipse-workspace1/TeamProject-community/src/main/resources/dtd/mybatis-3-mapper.dtd"> 
+
+<mapper namespace="com.project.spring.DAO.BoardDAO">
+
+  <select id="selectAll" resultType="com.project.spring.DTO.Board">
+    SELECT * FROM board ORDER BY id DESC
+  </select>
+
+  <select id="selectById" parameterType="int" resultType="com.project.spring.DTO.Board">
+    SELECT * FROM board WHERE id = #{id}
+  </select>
+
+  <insert id="insert" parameterType="com.project.spring.DTO.Board">
+    INSERT INTO board(title, content, writer, category, tag, hit, liked)
+    VALUES(#{title}, #{content}, #{writer}, #{category}, #{tag}, 0, 0)
+  </insert>
+
+  <update id="updateHit" parameterType="int">
+    UPDATE board SET hit = hit + 1 WHERE id = #{id}
+  </update>
+
+  <update id="update" parameterType="com.project.spring.DTO.Board">
+    UPDATE board 
+    SET title = #{title}, content = #{content}, category = #{category}, tag = #{tag} 
+    WHERE id = #{id} AND writer = #{writer}
+  </update>
+
+  <delete id="delete" parameterType="int">
+    DELETE FROM board WHERE id = #{id}
+  </delete>
+  
+  <!-- Category related operations -->
+  <select id="selectAllCategories" resultType="java.util.Map">
+    SELECT c.id, c.name, COUNT(b.id) AS postCount
+    FROM board_category c
+    LEFT JOIN board b ON c.name = b.category
+    GROUP BY c.id, c.name
+    ORDER BY c.id
+  </select>
+  
+  <insert id="insertCategory" parameterType="string">
+    INSERT INTO board_category(name) VALUES(#{name})
+  </insert>
+  
+  <delete id="deleteCategory" parameterType="int">
+    DELETE FROM board_category WHERE id = #{id}
+  </delete>
+  
+  <!-- Like related operations -->
+  <select id="checkLike" resultType="boolean">
+    SELECT COUNT(*) > 0
+    FROM board_like
+    WHERE board_id = #{boardId} AND user_id = #{userId}
+  </select>
+  
+  <insert id="insertLike">
+    INSERT INTO board_like(board_id, user_id)
+    VALUES(#{boardId}, #{userId})
+  </insert>
+  
+  <delete id="deleteLike">
+    DELETE FROM board_like
+    WHERE board_id = #{boardId} AND user_id = #{userId}
+  </delete>
+  
+  <select id="getLikeCount" parameterType="int" resultType="int">
+    SELECT COUNT(*)
+    FROM board_like
+    WHERE board_id = #{boardId}
+  </select>
+  
+  <!-- <update id="updateLikeCount">
+    UPDATE board
+    SET liked = (SELECT COUNT(*) FROM board_like WHERE board_id = #{boardId})
+    WHERE id = #{boardId}
+  </update>  -->
+  
+  <!-- Statistics related operations -->
+  <select id="getTimeStatistics" parameterType="string" resultType="java.util.Map">
+    <choose>
+      <when test="period == 'week'">
+        SELECT DATE(created) AS date, COUNT(*) AS count
+        FROM board
+        WHERE created >= DATE_SUB(CURDATE(), INTERVAL 7 DAY)
+        GROUP BY DATE(created)
+        ORDER BY DATE(created) DESC
+      </when>
+      <when test="period == 'month'">
+        SELECT DATE(created) AS date, COUNT(*) AS count
+        FROM board
+        WHERE created >= DATE_SUB(CURDATE(), INTERVAL 30 DAY)
+        GROUP BY DATE(created)
+        ORDER BY DATE(created) DESC
+      </when>
+      <otherwise>
+        SELECT YEAR(created) AS year, MONTH(created) AS month, COUNT(*) AS count
+        FROM board
+        WHERE created >= DATE_SUB(CURDATE(), INTERVAL 12 MONTH)
+        GROUP BY YEAR(created), MONTH(created)
+        ORDER BY YEAR(created) DESC, MONTH(created) DESC
+      </otherwise>
+    </choose>
+  </select>
+  
+  <select id="getPopularPosts" resultType="com.project.spring.DTO.Board">
+    SELECT *
+    FROM board
+    ORDER BY liked DESC, hit DESC
+    LIMIT 10
+  </select>
+  
+  <select id="getTopAuthors" resultType="java.util.Map">
+    SELECT 
+        b.writer AS userid, 
+        COUNT(*) AS postCount,
+        SUM(b.hit) AS totalHits,
+        SUM(b.liked) AS totalLikes
+    FROM board b
+    GROUP BY b.writer
+    ORDER BY postCount DESC, totalLikes DESC
+    LIMIT 10
+  </select>
+  
+    <!-- banned_words 조회 -->
+    <select id="getBannedWords" resultType="string">
+        SELECT word FROM banned_words
+    </select>
+
+    <!-- banned_patterns 조회 -->
+    <select id="getBannedPatterns" resultType="string">
+        SELECT pattern FROM banned_patterns
+    </select>
+
+    <!-- banned_replacements 조회 -->
+    <select id="getBannedReplacements" resultType="com.project.spring.DTO.ReplacementDTO">
+        SELECT bad_word AS badWord, replacement FROM banned_replacements
+    </select>
+
+</mapper>

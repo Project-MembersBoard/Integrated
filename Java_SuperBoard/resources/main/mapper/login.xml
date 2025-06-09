@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+"-//mybatis.org//DTD Mapper 3.0//EN"
+"file:///C:/Users/805-10/eclipse-workspace1/TeamProject-community/src/main/resources/dtd/mybatis-3-mapper.dtd"> 
+
+<mapper namespace="com.project.spring.DAO.LoginDAO">
+	
+	<select id ="checkByUseridAndPassword" resultType ="_int">
+		Select Count(*) from member where userid=#{userid} and password=#{password}
+	</select>
+	
+	<select id ="checkAdminByUseridAndPassword" resultType ="_int">
+		Select Count(*) from admin where userid=#{userid} and password=#{password}
+	</select>
+	
+	<select id="getNameByAdmin" resultType="java.lang.String">
+		Select name from admin where userid=#{userid} and password =#{password}
+	</select>
+	
+	<select id="getCreatedByAdmin" resultType="java.lang.String">
+		Select created from admin where userid=#{userid} and name =#{name}
+	</select>
+	
+	<select id="getNameByUser" resultType="java.lang.String">
+		Select name from member where userid=#{userid} and password =#{password}
+	</select>
+	
+	<select id="getCreatedByUser" resultType="java.lang.String">
+		Select created from member where userid=#{userid} and name =#{name}
+	</select>
+	
+	<update id="setLogin">
+		update member set recentlogin = NOW() where userid=#{userid}
+	</update>
+	
+	<update id="setAdminLogin">
+		update admin set recentlogin = NOW() where userid=#{userid} and password=#{password}
+	</update>
+	
+	<select id="checkFirst" resultType="boolean">
+		Select chfirst from admin where password=#{password}
+	</select>
+	
+</mapper>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <!-- 로그 레벨 설정 -->
+    <logger name="org.springframework.web" level="INFO"/>
+    <logger name="org.hibernate" level="INFO"/>
+
+    <!-- 콘솔 로그 출력 설정 -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- 회원가입 로그 파일 설정 -->
+    <appender name="SIGNUP_LOG" class="ch.qos.logback.core.FileAppender">
+        <file>logs/signup.log</file>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} - %msg%n</pattern>
+        </encoder>
+    </appender>
+    
+    <appender name="SIGNUP_ADMIN_LOG" class="ch.qos.logback.core.FileAppender">
+        <file>logs/signupadmin.log</file>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- 로그인 로그 파일 설정 -->
+    <appender name="LOGIN_LOG" class="ch.qos.logback.core.FileAppender">
+        <file>logs/login.log</file>
+        <encoder> 
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- 게시물 작성 로그 파일 설정 -->
+    <appender name="BOARD_LOG" class="ch.qos.logback.core.FileAppender">
+        <file>logs/board.log</file>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- 로깅 레벨 설정 -->
+    <logger name="com.project" level="INFO">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="GENERAL_LOG"/>
+    </logger>
+
+    <!-- 회원가입 관련 로그 -->
+    <logger name="com.project.signup" level="INFO">
+        <appender-ref ref="SIGNUP_LOG"/>
+    </logger>
+    
+    <logger name="com.project.signupadmin" level="INFO">
+        <appender-ref ref="SIGNUP_ADMIN_LOG"/>
+    </logger>
+
+    <!-- 로그인 관련 로그 -->
+    <logger name="com.project.login" level="INFO">
+        <appender-ref ref="LOGIN_LOG"/>
+    </logger>
+    
+    <!-- 게시물 관련 로그 -->
+    <logger name="com.project.board" level="INFO">
+        <appender-ref ref="BOARD_LOG"/>
+    </logger>
+
+    <!-- 루트 로거 설정 (기본적으로 콘솔에 출력) -->
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+    </root>
+
+</configuration>
