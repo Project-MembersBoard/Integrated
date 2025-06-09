@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+"-//mybatis.org//DTD Mapper 3.0//EN"
+"file:///C:/Users/Gates/git/hyun0627/SpringProject/src/main/resources/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.project.spring.DAO.StaticsDAO">
+
+	<!-- 월별 가입자 수 -->
+    <select id="getMonthlyMemberCount" resultType="int">
+        SELECT COUNT(*) 
+        FROM member 
+        WHERE DATE_FORMAT(created, '%Y-%m') = #{yearMonth}
+    </select>
+
+    <!-- 월별 게시물 수 -->
+    <select id="getMonthlyPostCount" resultType="int">
+        SELECT COUNT(*) 
+        FROM board 
+        WHERE DATE_FORMAT(created, '%Y-%m') = #{yearMonth}
+    </select>
+
+    <!-- 월별 최고 조회수 게시물 제목 -->
+    <select id="getMonthlyMaxViewPostTitle" resultType="string">
+        SELECT title
+        FROM board
+        WHERE DATE_FORMAT(created, '%Y-%m') = #{yearMonth}
+        ORDER BY hit DESC
+        LIMIT 1
+    </select>
+
+    <!-- 월별 최고 좋아요 게시물 제목 -->
+    <select id="getMonthlyMaxLikePostTitle" resultType="string">
+        SELECT title
+        FROM board
+        WHERE DATE_FORMAT(created, '%Y-%m') = #{yearMonth}
+        ORDER BY liked DESC
+        LIMIT 1
+    </select>
+    
+</mapper>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"file:///C:/Users/805-10/eclipse-workspace2/TeamProject-community/src/main/resources/dtd/mybatis-3-mapper.dtd"> 
+
+<mapper namespace="com.project.spring.DAO.CommentDAO">
+
+  <!-- 특정 게시글의 모든 부모 댓글 조회 -->
+  <select id="selectByBoardId" parameterType="int" resultType="com.project.spring.DTO.Comment">
+    SELECT c.*, m.name AS userName
+    FROM comment c
+    JOIN member m ON c.user_id = m.userid
+    WHERE c.board_id = #{boardId} AND c.parent_id IS NULL
+    ORDER BY c.created ASC
+  </select>
+  
+  <!-- 특정 댓글의 답글 조회 -->
+  <select id="selectRepliesByParentId" parameterType="int" resultType="com.project.spring.DTO.Comment">
+    SELECT c.*, m.name AS userName
+    FROM comment c
+    JOIN member m ON c.user_id = m.userid
+    WHERE c.parent_id = #{parentId}
+    ORDER BY c.created ASC
+  </select>
+  
+  <!-- 특정 ID의 댓글 조회 -->
+  <select id="selectById" parameterType="int" resultType="com.project.spring.DTO.Comment">
+  SELECT 
+    c.id,
+    c.board_id AS boardId,
+    c.user_id AS userId,
+    c.content,
+    c.created,
+    c.updated,
+    c.parent_id AS parentId,
+    m.name AS userName
+  FROM comment c
+  JOIN member m ON c.user_id = m.userid
+  WHERE c.id = #{id}
+</select>
+  
+  <!-- 새 댓글 추가 -->
+  <insert id="insert" parameterType="com.project.spring.DTO.Comment">
+    INSERT INTO comment (board_id, user_id, content, parent_id)
+    VALUES (#{boardId}, #{userId}, #{content}, #{parentId})
+  </insert>
+  
+  <!-- 답글 추가 -->
+  <insert id="insertReply">
+    INSERT INTO comment (board_id, user_id, content, parent_id)
+    VALUES (#{comment.boardId}, #{comment.userId}, #{comment.content}, #{parentId})
+    <selectKey keyProperty="comment.id" resultType="int" order="AFTER">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+  </insert>
+  
+  <!-- 댓글 수정 -->
+  <update id="update" parameterType="com.project.spring.DTO.Comment">
+    UPDATE comment
+    SET content = #{content}
+    WHERE id = #{id} AND user_id = #{userId}
+  </update>
+  
+  <!-- 댓글 삭제 -->
+  <delete id="delete" parameterType="int">
+    DELETE FROM comment WHERE id = #{id}
+  </delete>
+  
+  <!-- 계층형 댓글 조회 (부모 댓글과 답글을 함께 조회) -->
+  <select id="selectCommentsWithReplies" parameterType="int" resultMap="commentResultMap">
+    SELECT 
+      c.*, m.name AS userName,
+      r.id AS reply_id, r.content AS reply_content, r.user_id AS reply_user_id,
+      r.created AS reply_created, r.updated AS reply_updated, r.parent_id AS reply_parent_id,
+      m2.name AS reply_userName
+    FROM comment c
+    JOIN member m ON c.user_id = m.userid
+    LEFT JOIN comment r ON c.id = r.parent_id
+    LEFT JOIN member m2 ON r.user_id = m2.userid
+    WHERE c.board_id = #{boardId} AND c.parent_id IS NULL
+    ORDER BY c.created ASC, r.created ASC
+  </select>
+  
+    <!--  댓글 답글 카운트 총 조회 boardlist 게시글 제목 옆에 숫자 띄우게끔해줌 -->
+	<select id="countByBoardId" parameterType="int" resultType="int">
+   	 SELECT COUNT(*) FROM comment WHERE board_id = #{boardId}
+	</select>
+  
+  
+  <resultMap id="commentResultMap" type="com.project.spring.DTO.Comment">
+    <id property="id" column="id"/>
+    <result property="boardId" column="board_id"/>
+    <result property="userId" column="user_id"/>
+    <result property="content" column="content"/>
+    <result property="created" column="created"/>
+    <result property="updated" column="updated"/>
+    <result property="parentId" column="parent_id"/>
+    <result property="userName" column="userName"/>
+    <collection property="replies" ofType="com.project.spring.DTO.Comment">
+      <id property="id" column="reply_id"/>
+      <result property="boardId" column="board_id"/>
+      <result property="userId" column="reply_user_id"/>
+      <result property="content" column="reply_content"/>
+      <result property="created" column="reply_created"/>
+      <result property="updated" column="reply_updated"/>
+      <result property="parentId" column="reply_parent_id"/>
+      <result property="userName" column="reply_userName"/>
+    </collection>
+  </resultMap>
+  
+</mapper>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+"-//mybatis.org//DTD Mapper 3.0//EN"
+"file:///C:/Users/Gates/git/hyun0627/SpringProject/src/main/resources/dtd/mybatis-3-mapper.dtd"> 
+
+<mapper namespace="com.project.spring.DAO.ModifyDAO">
+	
+	<select id="checkUser" resultType ="_int">
+		Select Count(*) from member where userid=#{userid} and password=#{password} and name=#{name} and created=#{created}
+	</select>
+	
+	<select id="checkAdmin" resultType ="_int">
+		Select Count(*) from admin where userid=#{userid} and password=#{password} and name=#{name} and created=#{created}
+	</select>
+	
+	<select id="getUserData" resultType ="com.project.spring.DTO.Signup">
+		Select userid, password, name, email, mobile, gender, birth,created from member where name=#{name} and created=#{created}
+	</select>
+	
+	<select id="getAdminData" resultType ="com.project.spring.DTO.Signup">
+		Select userid, password, name, mobile, gender, birth,created from admin where name=#{name} and created=#{created}
+	</select>
+	
+	<update id="updateInfo">
+		Update member set userid=#{userid}, password=#{password},
+							   name=#{name},mobile=#{mobile},
+							   birth=#{birth},email=#{email},
+							   gender=#{gender}
+						   where name=#{name} and birth=#{birth} and gender=#{gender} and created=#{created}
+	</update>
+	
+	<update id="updateAdminInfo">
+		Update admin set userid=#{userid}, password=#{password},
+							   name=#{name},mobile=#{mobile},
+							   birth=#{birth}, gender=#{gender}
+						   where name=#{name} and birth=#{birth} and gender=#{gender} and created=#{created}
+	</update>
+	
+	<update id="updatePw">
+		Update admin set password=#{password}, chfirst = 0 where name=#{name} and created=#{created}
+	</update>
+	
+	<delete id="deleteUserData">
+		Delete from member where userid=#{userid}
+	</delete>
+	
+	<delete id="deleteAdminData">
+		Delete from admin where userid=#{userid} and created=#{created}
+	</delete>
+	
+</mapper>

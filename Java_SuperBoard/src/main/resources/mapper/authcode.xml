@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+"-//mybatis.org//DTD Mapper 3.0//EN"
+"file:///C:/Users/805-10/eclipse-workspace2/TeamProject-community/src/main/resources/dtd/mybatis-3-mapper.dtd"> 
+
+<mapper namespace="com.project.spring.DAO.AuthCodeMapper"> 
+
+	<insert id="insertAuthCode" parameterType="com.project.spring.DTO.AuthCode">
+        INSERT INTO authcode (email, code, created)
+        VALUES (#{email}, #{code}, #{created})
+    </insert>
+
+    <select id="findByEmail" resultType="com.project.spring.DTO.AuthCode">
+        SELECT * FROM authcode WHERE email = #{email}
+    </select>
+
+    <select id="verifyCode" resultType="_int">
+        SELECT Count(*) FROM authcode WHERE email=#{email} and code=#{code} AND created >= NOW() - INTERVAL 3 MINUTE
+    </select>
+    
+    <delete id="deleteByEmail">
+    	Delete from authcode where email = #{email}
+    </delete>
+    
+    <delete id="deleteExpiredCodes">
+    	Delete from authcode where created &lt; NOW() - INTERVAL 3 MINUTE
+    </delete>
+	
+</mapper>

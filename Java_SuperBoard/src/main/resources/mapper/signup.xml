@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+"-//mybatis.org//DTD Mapper 3.0//EN"
+"file:///C:/Users/Gates/git/hyun0627/SpringProject/src/main/resources/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.project.spring.DAO.SignupDAO"> 
+
+	<select id="count" resultType="_int">
+		Select Count(*) from member
+	</select>
+	
+	<select id="findMaxId" resultType="_int">
+		Select Max(id) from member
+	</select>
+
+	<select id="existsByUserid" parameterType="String" resultType="boolean">
+		SELECT COUNT(*) > 0 FROM member WHERE userid = #{userid}
+	</select>
+	
+	<select id="existsByPassword" resultType="_int">
+		SELECT COUNT(*) FROM member WHERE password = #{password}
+	</select>
+	
+	<select id="existsByEmail" parameterType="String" resultType="boolean">
+		SELECT COUNT(*) > 0 FROM member WHERE email = #{email}
+	</select>
+	
+	<select id="existsByMobile" parameterType="String" resultType="boolean">
+		SELECT COUNT(*) > 0 FROM member WHERE mobile = #{mobile}
+	</select>
+	
+	<insert id="doSignup">
+		Insert into member (id, userid, password, birth, email, gender, mobile, name) 
+		Values (#{id}, #{userid},#{password},#{birth},#{email},#{gender},#{mobile},#{name})
+	</insert>
+	
+	<select id="getAllUser" resultType="com.project.spring.DTO.Signup">
+		Select id,userid,password,name,birth,email,gender,mobile,recentlogin,created,status from member order by id
+	</select>
+	
+	<select id="getUserData" resultType="com.project.spring.DTO.Signup">
+		Select id,userid,name,birth,email,gender,mobile,recentlogin,created,status from member where id=#{id}
+	</select>
+	
+	<select id="getFilterInfo" resultType="_int" parameterType="map">
+		SELECT COUNT(*)
+		FROM member
+		WHERE name LIKE CONCAT(#{value}, '%')
+		   OR name LIKE CONCAT('%', #{value})
+		   OR name LIKE CONCAT('%', #{value}, '%')
+	</select>
+	
+	<select id="getFilterData" resultType="com.project.spring.DTO.Signup" parameterType="map">
+		SELECT id,userid,password,name,birth,email,gender,mobile,recentlogin,created
+		FROM member
+		WHERE name LIKE CONCAT(#{value}, '%')
+		   OR name LIKE CONCAT('%', #{value})
+		   OR name LIKE CONCAT('%', #{value}, '%')
+	</select>
+	
+	<select id="getDayUserCount" resultType="_int">
+		SELECT COUNT(*) FROM member WHERE DATE(created) = CURDATE()
+	</select>
+	
+	<select id="getMonthUserCount" resultType="_int">
+		SELECT COUNT(*) FROM member WHERE YEAR(created) = YEAR(CURDATE()) 
+		AND MONTH(created) = MONTH(CURDATE())
+	</select>
+	
+	<select id="getYearUserCount" resultType="_int">
+		SELECT COUNT(*) FROM member WHERE YEAR(created) = YEAR(CURDATE())
+	</select>
+	
+	<select id="getUserid" resultType="string">
+		Select userid from member where id=#{id}
+	</select>
+	
+	<select id="checkid" resultType="_int">
+		Select Count(*) From member where userid=#{userid}
+	</select>
+	
+	<select id="checkMobile" resultType="_int">
+		Select Count(*) From member where mobile=#{mobile}
+	</select>
+	
+	<update id="stopAccounts">
+	    UPDATE member
+	    SET status = '정지'
+	    WHERE id IN
+	    <foreach item="id" collection="ids" open="(" separator="," close=")">
+	    	#{id}
+	    </foreach>
+	</update>
+	
+	<update id="activateAccounts">
+	    UPDATE member
+	    SET status = '활성화'
+	    WHERE id IN
+	    <foreach collection="ids" item="id" open="(" separator="," close=")">
+	    	#{id}
+	    </foreach>
+	</update>
+	
+	<select id="getFillterUser" resultType="com.project.spring.DTO.Signup">
+		Select id,userid,password,name,birth,email,gender,mobile,recentlogin,created,status from member where status = #{status} order by id
+	</select>
+	
+	<select id="checkStatus" resultType="string">
+		Select status from member where userid=#{userid}
+	</select>
+	
+</mapper>

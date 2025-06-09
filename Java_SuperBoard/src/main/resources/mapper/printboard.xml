@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+"-//mybatis.org//DTD Mapper 3.0//EN"
+"file:///C:/Users/Gates/git/hyun0627/SpringProject/src/main/resources/dtd/mybatis-3-mapper.dtd"> 
+
+<mapper namespace="com.project.spring.DAO.PrintBoardDAO">
+	
+	<select id="getBoardList" resultType="com.project.spring.DTO.PrintBoard">
+		Select id, title, writer, category,tag,hit,liked,created from board where writer=#{userid}
+	</select>
+	
+	<select id="getDayBoardCount" resultType="_int">
+		SELECT COUNT(*) FROM board WHERE DATE(created) = CURDATE()
+	</select>
+	
+	<select id="getMonthBoardCount" resultType="_int">
+		SELECT COUNT(*) FROM board WHERE YEAR(created) = YEAR(CURDATE()) 
+		AND MONTH(created) = MONTH(CURDATE())
+	</select>
+	
+	<select id="getYearBoardCount" resultType="_int">
+		SELECT COUNT(*) FROM board WHERE YEAR(created) = YEAR(CURDATE())
+	</select>
+	
+	<select id="getDayHitCount" resultType="_int">
+		SELECT MAX(hit) FROM board WHERE DATE(created) = CURDATE()
+	</select>
+	
+	<select id="getMonthHitCount" resultType="_int">
+		SELECT MAX(hit) FROM board WHERE YEAR(created) = YEAR(CURDATE()) 
+		AND MONTH(created) = MONTH(CURDATE())
+	</select>
+	
+	<select id="getYearHitCount" resultType="_int">
+		SELECT MAX(hit) FROM board WHERE YEAR(created) = YEAR(CURDATE())
+	</select>
+	
+	<select id="getDayLikedCount" resultType="_int">
+		SELECT MAX(liked) FROM board WHERE DATE(created) = CURDATE()
+	</select>
+	
+	<select id="getMonthLikedCount" resultType="_int">
+		SELECT MAX(liked) FROM board WHERE YEAR(created) = YEAR(CURDATE()) 
+		AND MONTH(created) = MONTH(CURDATE())
+	</select>
+	
+	<select id="getYearLikedCount" resultType="_int">
+		SELECT MAX(liked) FROM board WHERE YEAR(created) = YEAR(CURDATE())
+	</select>
+	
+</mapper>
